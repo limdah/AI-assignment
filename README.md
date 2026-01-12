@@ -1,5 +1,7 @@
 # Setup and Usage
 
+Clone the repository, cd into the AI-assignment folder and follow the steps below.
+
 1. Create and activate a virtual environment:
 
    **python3 -m venv .venv**
@@ -12,7 +14,7 @@
 
 3. Set the OpenRouter API key:
 
-   The project uses an LLM agent via OpenRouter, so an API key is required.
+   The project uses an LLM agent via OpenRouter, so an API key is required. In the terminal, run the following commands:
    
    **export OPENROUTER_API_KEY="YOUR_API_KEY_HERE"**
    
