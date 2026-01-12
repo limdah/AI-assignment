@@ -1,0 +1,20 @@
+Assumptions:
+
+- This system works with the Titanic dataset, and the task is always binary classification for survival prediction.
+- The user provides a single instruction per run.
+- The system supports feature selection instructions such as dropping columns, keeping only specific columns, or dropping all columns except specified ones.
+- The system supports model selection between logistic regression and random forest.
+- If no model is mentioned in the instruction, logistic regression is used as default model.
+- The default planner is an LLM-based agent that converts the user instruction into a structured JSON plan.
+- The LLM-based agent is implemented using OpenRouter and  requires the user to provide a valid OpenRouter API
+  key via the OPENROUTER_API_KEY environment variable (more detailes in README.md).
+- If the user provides an invalid instruction, the LLM agent falls back to default settings (logistic regression
+  with all available feature columns except the target column are used).
+- Model hyperparameters are kept simple and mostly use default or fixed values.
+- No hyperparameter tuning is performed.
+- Missing values in numeric columns are filled using the median.
+- Missing values in categorical columns are filled using the most frequent value.
+- Categorical columns are converted using one-hot encoding.
+- A 80/20 train/test split is used.
+- The evaluation outputs include a confusion matrix, accuracy, precision, recall, and F1 score.
+- If required inputs are missing, such as a missing CSV file, an empty instruction, or a missing target column, the program exits with an error.

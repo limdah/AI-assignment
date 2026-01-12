@@ -1,0 +1,21 @@
+Answers to the questions:
+
+1.What changes would you make to make this work for any dataset, not just Titanic
+
+First, target column would not be fixed as in this case to survived. The user should specify the target column in the instruction
+and also provide the path to the dataset. Based on the target column, the program should then decide whether the problem is a
+classification or a regression. Also, the code should be updated so it can work with regression models.
+
+2. What would be different if this was a solution where instructions are received in a chat (for example “Drop
+the Age feature” followed by “Now train the model”) instead of a single instruction
+
+In that case, the system would need to remember the previous instructions and update the object (in this case Plan),
+after each instruction. This could be implemented using a loop, where in each iteration the LLM agent updates the Plan
+based on the user’s instructions. The loop would continue until the user sends a specific command like exit to end the interaction.
+
+3. How would you enable EDA features such as “What is the mean age of all females on board under 25”
+
+To enable EDA features, the system should  detect whether the user is asking for data analysis or for training a model. In the
+case of a data analysis request, the LLM agent would return a structured JSON output indicating that data analysis is required,
+along with information about which columns to analyze and which filters to apply. This JSON output would then be passed to a
+separate data analysis function that would execute the filters on the dataset and return the result.
